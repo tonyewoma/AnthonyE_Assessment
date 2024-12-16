@@ -67,7 +67,7 @@ describe('Parabank Customer Login', () => {
     //     .should('be.visible');
     // });
 
-    it('should login successfully with valid credentials', () => {
+    it('should login successfully with valid credential', () => {
         // Load valid user credentials from a fixture
         cy.fixture('user').then((user) => {
           // Enter valid username and password
