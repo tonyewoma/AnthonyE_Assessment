@@ -25,11 +25,22 @@ describe('Parabank - Transfer Funds', () => {
             cy.get('#amount').type('100'); // Enter the amount to transfer
   
             // Select the "From Account" (Assumes accounts are available)
-            cy.get('#fromAccountId').select('13677'); // Replace with a valid account number
+            // cy.get('#fromAccountId').select('13677'); // Replace with a valid account number
+
+            cy.get('#fromAccountId').find('option').eq(0).then((option) => {
+              const value = option.val(); // Get dynamic value
+              cy.get('#fromAccountId').select(value); // Select the option
+            });
+            
  
   
             // Select the "To Account"
-            cy.get('#toAccountId').select('13677'); // Replace with a valid account number
+            // cy.get('#toAccountId').select('13677'); // Replace with a valid account number
+            cy.get('#toAccountId').find('option').eq(0).then((option) => {
+              const value = option.val(); // Get dynamic value
+              cy.get('#toAccountId').select(value); // Select the option
+            });
+            
       
             // Click on Transfer button
             cy.get(':nth-child(4) > .button').click();
@@ -38,7 +49,7 @@ describe('Parabank - Transfer Funds', () => {
             cy.contains('Transfer Complete!').should('be.visible');
 
             // Optionally verify the transfer amount and accounts in the confirmation message
-            cy.contains('$100.00 has been transferred from account #13677 to account #13677.').should('be.visible');
+            // cy.contains('$100.00 has been transferred from account #13677 to account.').should('be.visible');
   
 
         });

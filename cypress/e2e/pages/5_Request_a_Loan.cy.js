@@ -20,7 +20,12 @@ describe('Parabank - Request a Loan', () => {
            // Step 2: Fill out the form fields
             cy.get('#amount').type('5000'); // Amount field
             cy.get('#downPayment').type('1000'); // Down payment dropdown
-            cy.get('#fromAccountId').select('16341'); // Account number field
+            // cy.get('#fromAccountId').select('16341'); // Account number field
+            cy.get('#fromAccountId').find('option').eq(0).then((option) => {
+              const value = option.val(); // Get dynamic value
+              cy.get('#fromAccountId').select(value); // Select the option
+            });
+            
 
             // Step 3: Submit the loan request
             cy.get('[colspan="2"] > .button').click();
