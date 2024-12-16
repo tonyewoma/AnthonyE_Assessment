@@ -1,6 +1,9 @@
 SeamlessHR TestOps Assessment
+
 Required
+
 Section 2
+
 Please carefully read the instructions and the questions that follow: Using Selenium or Cypress with the Page Object Model (POM) framework, along with any programming language of your choice, interact with the GUI of the website https://parabank.parasoft.com/parabank/index.htm to perform the following actions: Tasks: 
  
 **Register a new account**
